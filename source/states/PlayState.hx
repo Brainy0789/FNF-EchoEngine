@@ -59,7 +59,7 @@ import psychlua.HScript;
 import tea.SScript;
 #end
 
-#if hxwren
+#if WREN_ALLOWED
 import psychlua.wren.*;
 #end
 
@@ -268,7 +268,7 @@ class PlayState extends MusicBeatState
 	public var startCallback:Void->Void = null;
 	public var endCallback:Void->Void = null;
 
-	#if hxwren
+	#if WREN_ALLOWED
 	public var wren:FunkinWren;
 	#end
 
@@ -430,7 +430,7 @@ class PlayState extends MusicBeatState
 			}
 		#end
 
-		#if hxwren
+		#if WREN_ALLOWED
 		wren = new FunkinWren();
 		wren.execute('test');
 		#end

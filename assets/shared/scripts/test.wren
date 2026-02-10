@@ -1,1 +1,2 @@
-System.print("FROM WREN: Hello, world!")
+spr = WrenSprite.new()
+addToState(spr)

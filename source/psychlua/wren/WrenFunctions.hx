@@ -2,12 +2,11 @@ package psychlua.wren;
 
 import cpp.RawPointer;
 import cpp.ConstCharStar;
+import psychlua.wren.bindings.*;
 
+/*
 class WrenFunctions
 {
-    /**
-     * Called by Wren to bind a foreign method.
-     */
     public static function bindForeignMethod(
         vm:RawPointer<WrenVM>,
         module:ConstCharStar,
@@ -16,24 +15,17 @@ class WrenFunctions
         signature:ConstCharStar
     ):WrenForeignMethodFn
     {
-        // return the actual native method function
+        // Return the actual native method function
         return exampleMethod;
     }
 
-    /**
-     * Example foreign method.
-     * IMPORTANT: must be exactly (vm) -> Void
-     */
     public static function exampleMethod(
         vm:RawPointer<WrenVM>
     ):Void
     {
-        // your implementation here
+        Sys.println("Hello from exampleMethod!");
     }
 
-    /**
-     * Called by Wren to bind a foreign class.
-     */
     public static function bindForeignClass(
         vm:RawPointer<WrenVM>,
         module:ConstCharStar,
@@ -46,23 +38,19 @@ class WrenFunctions
         };
     }
 
-    /**
-     * Allocator for the foreign class.
-     */
     public static function allocate(
         vm:RawPointer<WrenVM>
     ):Void
     {
-        // allocation logic
+        Sys.println("Allocating foreign class instance");
     }
 
-    /**
-     * Finalizer for the foreign class.
-     */
+
     public static function finalize(
         vm:RawPointer<WrenVM>
     ):Void
     {
-        // cleanup logic
+        Sys.println("Finalizing foreign class instance");
     }
 }
+/*

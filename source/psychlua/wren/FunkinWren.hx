@@ -2,7 +2,8 @@ package psychlua.wren;
 
 #if WREN_ALLOWED
 
-import psychlua.wren.WrenFunctions;
+
+//import psychlua.wren.WrenFunctions;
 
 class FunkinWren
 {
@@ -35,8 +36,8 @@ class FunkinWren
         config.writeFn = cpp.Function.fromStaticFunction(writeFn);
 		config.errorFn = cpp.Function.fromStaticFunction(errorFn);
 
-        config.bindForeignMethodFn = psychlua.wren.WrenFunctions.bindForeignMethod;
-        config.bindForeignClassFn = psychlua.wren.WrenFunctions.bindForeignClass;
+        //config.bindForeignMethodFn = psychlua.wren.WrenFunctions.bindForeignMethod;
+        //config.bindForeignClassFn = psychlua.wren.WrenFunctions.bindForeignClass;
 
 		wren = Wren.NewVM(cpp.RawPointer.addressOf(config));
     }
