@@ -1,6 +1,6 @@
-#if LUA_ALLOWED
 package psychlua;
 
+#if LUA_ALLOWED
 import backend.WeekData;
 import backend.Highscore;
 import backend.Song;

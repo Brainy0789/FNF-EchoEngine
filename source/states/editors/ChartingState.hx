@@ -311,7 +311,7 @@ class ChartingState extends MusicBeatState
 			{name: "Section", label: 'Section'},
 			{name: "Note", label: 'Note'},
 			{name: "Events", label: 'Events'},
-			{name: "Extras", labal: 'Extras'}
+			{name: "Extras", label: 'Extras'},
 			{name: "Charting", label: 'Charting'},
 			{name: "Data", label: 'Data'},
 		];

@@ -36,6 +36,7 @@ import haxe.io.Path;
 ')
 #end
 
+import backend.data.WindowData;
 class Main extends Sprite
 {
 	var game = {
@@ -58,9 +59,7 @@ class Main extends Sprite
 	}
 
 	public function new()
-	{
-		new brainyscript.BrainyScript().execute('print("Hello, world!")');
-		
+	{	
 		super();
 
 		// Credits to MAJigsaw77 (he's the og author for this code)
@@ -92,8 +91,22 @@ class Main extends Sprite
 
 	private function setupGame():Void
 	{
+		var data = WindowDataHandler.getWindowData();
+
 		var stageWidth:Int = Lib.current.stage.stageWidth;
 		var stageHeight:Int = Lib.current.stage.stageHeight;
+		var title = "Friday Night Funkin': Brainy Psych";
+
+		if (data != null)
+		{
+			if (data.title != null) title = data.title;
+			if (data.size != null)
+			{
+				if (data.size.width != null) stageWidth = data.size.width;
+				if (data.size.height != null) stageHeight = data.size.height;
+			}
+		}
+
 
 		if (game.zoom == -1.0)
 		{
@@ -150,6 +163,8 @@ class Main extends Sprite
 			if (FlxG.game != null)
 			resetSpriteCache(FlxG.game);
 		});
+
+		Lib.current.stage.window.title = title;
 	}
 
 	static function resetSpriteCache(sprite:Sprite):Void {
@@ -172,7 +187,7 @@ class Main extends Sprite
 		dateNow = dateNow.replace(" ", "_");
 		dateNow = dateNow.replace(":", "'");
 
-		path = "./crash/" + "PsychEngine_" + dateNow + ".txt";
+		path = "./crash/" + "BrainyPsych_" + dateNow + ".txt";
 
 		for (stackItem in callStack)
 		{
@@ -199,7 +214,7 @@ class Main extends Sprite
 		#if DISCORD_ALLOWED
 		DiscordClient.shutdown();
 		#end
-		Sys.exit(1);
+		//Sys.exit(1);
 	}
 	#end
 }
